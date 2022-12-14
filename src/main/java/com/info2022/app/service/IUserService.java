@@ -22,6 +22,6 @@ public interface IUserService {
 		
 	public UserDto update(UserDto userDto);
 	
-	public UserDto delete(Long id);
+	public boolean delete(Integer dni);
 
 }

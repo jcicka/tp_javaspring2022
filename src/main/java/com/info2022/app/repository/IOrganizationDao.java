@@ -14,4 +14,5 @@ public interface IOrganizationDao extends JpaRepository<Organization, Long>{
 
 	@Query("select u from organizations u where u.name = ?1")
 	public List<Organization> findByname(String name);
+	public Organization findByCuit(Integer cuit);
 }

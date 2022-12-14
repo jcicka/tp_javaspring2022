@@ -40,85 +40,149 @@ public class Organization implements Serializable {
 	
 	private Integer phone;
 	
+	private Boolean activo;
+	
 	private String password;
 	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "cod_org", cascade = CascadeType.ALL, orphanRemoval = true)
 	private Set<Evento> evento = new HashSet<>();
 
+	
+
 	public Long getId() {
 		return id;
 	}
+
+
 
 	public void setId(Long id) {
 		this.id = id;
 	}
 
+
+
 	public String getName() {
 		return name;
 	}
+
+
 
 	public void setName(String name) {
 		this.name = name;
 	}
 
+
+
 	public Integer getCuit() {
 		return cuit;
 	}
+
+
 
 	public void setCuit(Integer cuit) {
 		this.cuit = cuit;
 	}
 
+
+
 	public Date getDateup() {
 		return dateup;
 	}
+
+
 
 	public void setDateup(Date dateup) {
 		this.dateup = dateup;
 	}
 
+
+
 	public String getEmail() {
 		return email;
 	}
+
+
 
 	public void setEmail(String email) {
 		this.email = email;
 	}
 
+
+
 	public String getAddress() {
 		return address;
 	}
+
+
 
 	public void setAddress(String address) {
 		this.address = address;
 	}
 
-	public Integer getAddress_altura() {
+
+
+	public Integer getAddressAltura() {
 		return addressAltura;
 	}
 
-	public void setAddress_altura(Integer address_altura) {
-		this.addressAltura = address_altura;
+
+
+	public void setAddressAltura(Integer addressAltura) {
+		this.addressAltura = addressAltura;
 	}
+
+
 
 	public Integer getPhone() {
 		return phone;
 	}
 
+
+
 	public void setPhone(Integer phone) {
 		this.phone = phone;
 	}
+
+
+
+	public Boolean getActivo() {
+		return activo;
+	}
+
+
+
+	public void setActivo(Boolean activo) {
+		this.activo = activo;
+	}
+
+
 
 	public String getPassword() {
 		return password;
 	}
 
+
+
 	public void setPassword(String password) {
 		this.password = password;
 	}
 
-	public Organization(Long id, String name, Integer cuit, Date dateup, String email, String address,
-			Integer address_altura, Integer phone, String password) {
+
+
+	public Set<Evento> getEvento() {
+		return evento;
+	}
+
+
+
+	public void setEvento(Set<Evento> evento) {
+		this.evento = evento;
+	}
+
+
+
+	public Organization(Long id, @NotBlank String name, Integer cuit, Date dateup, String email, String address,
+			Integer addressAltura, Integer phone, Boolean activo, String password, Set<Evento> evento) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -126,22 +190,30 @@ public class Organization implements Serializable {
 		this.dateup = dateup;
 		this.email = email;
 		this.address = address;
-		this.addressAltura = address_altura;
+		this.addressAltura = addressAltura;
 		this.phone = phone;
+		this.activo = activo;
 		this.password = password;
+		this.evento = evento;
 	}
+
+
+
+	@Override
+	public String toString() {
+		return "Organization [id=" + id + ", name=" + name + ", cuit=" + cuit + ", dateup=" + dateup + ", email="
+				+ email + ", address=" + address + ", addressAltura=" + addressAltura + ", phone=" + phone + ", activo="
+				+ activo + ", password=" + password + ", evento=" + evento + "]";
+	}
+
+
 
 	public Organization() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	@Override
-	public String toString() {
-		return "Organization [id=" + id + ", name=" + name + ", cuit=" + cuit + ", dateup=" + dateup + ", email="
-				+ email + ", address=" + address + ", address_altura=" + addressAltura + ", phone=" + phone
-				+ ", password=" + password + "]";
-	}
+	
 	
 	
 	

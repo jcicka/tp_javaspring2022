@@ -25,13 +25,13 @@ public class UserServiceImpl implements IUserService {
 	@Override
 	public List<User> findByLastname(String Lastname) {
 		// TODO Auto-generated method stub
-		return userDao.findByLastname(Lastname);
+		return userDao.findByLastnameLike(Lastname);
 	}
 	
 	@Override
 	public UserDto findByDni(Integer dni) {
 		// TODO Auto-generated method stub
-		return userDao.findByDni(dni);
+		return UserWrapper.entityToDto(userDao.findByDni(dni));
 	}
 
 	@Override
@@ -45,15 +45,56 @@ public class UserServiceImpl implements IUserService {
 
 	
 	@Override
-	public UserDto update(UserDto patientDto) {
-		// TODO Auto-generated method stub
+	public UserDto update(UserDto userDto) {
+		User userExist = userDao.findByDni(userDto.getDni());
+		//Patient patient = PatientWrapper.dtoToEntity(patientDto);
+		if(userExist != null) {
+			
+			User entityToPersist = new User(); //creamos el objeto a persistir con campos nulos
+			
+			// seteamos los valores al objeto a persistir
+			entityToPersist.setId(userExist.getId());
+			entityToPersist.setDni(userExist.getDni());
+			entityToPersist.setLastname(userDto.getLastname());
+			entityToPersist.setName(userDto.getName());
+			entityToPersist.setActivo(userDto.getActivo());
+			entityToPersist.setEmail(userDto.getEmail());
+			entityToPersist.setPassword(userExist.getPassword());
+			//
+			
+			//persistimos el objeto
+			userExist = userDao.save(entityToPersist);
+			userDto = UserWrapper.entityToDto(userExist);
+			return userDto;
+		}
+		
+		
 		return null;
 	}
 
 	@Override
-	public UserDto delete(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+	public boolean delete(Integer dni) {
+		User userExist = userDao.findByDni(dni);
+		
+		if(userExist != null) {
+			
+			User entityToPersist = new User(); //creamos el objeto a persistir con campos nulos
+			
+			// seteamos los valores al objeto a persistir
+			entityToPersist.setId(userExist.getId());
+			entityToPersist.setDni(userExist.getDni());
+			entityToPersist.setLastname(userExist.getLastname());
+			entityToPersist.setName(userExist.getName());
+			entityToPersist.setActivo(false);
+			entityToPersist.setEmail(userExist.getEmail());
+			entityToPersist.setPassword(userExist.getPassword());
+			//
+			
+			//persistimos el objeto
+			userExist = userDao.save(entityToPersist);
+			return true;
+		
+		}
+		return false;
 	}
-
 }
