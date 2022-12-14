@@ -59,6 +59,7 @@ private static final Logger log = LoggerFactory.getLogger(EventoController.class
 		}else {
 			evento.setCod_org(orgexist);
 			EventoDto newEvento = eventoService.save(evento);
+			
 			response.put("evento", newEvento);
 		}
 			
