@@ -23,6 +23,12 @@ public class EventoServiceImpl implements IEventoService{
 	private IOrganizationDao organizationDao;
 	
 	@Override
+	public Evento findById(Long id) {
+		// TODO Auto-generated method stub
+		return eventoDao.findById(id).orElse(new Evento());
+	}
+	
+	@Override
 	public List<Evento> getAll() {
 		// TODO Auto-generated method stub
 		return eventoDao.findAll();
@@ -36,17 +42,10 @@ public class EventoServiceImpl implements IEventoService{
 
 	@Override
 	public EventoDto save(Evento evento) {
-		//Evento evento1 = EventoWrapper.dtoToEntity(evento);
+		
 		evento = eventoDao.save(evento);
 		EventoDto evento1 = EventoWrapper.entityToDto(evento);
-		//Organization organization = new Organization();
-		/*
-		 * try {
-		 * 
-		 * organization = organizationDao.findById(evento1.getCod_org().getId()); }
-		 * catch (Exception e) { // TODO Auto-generated catch block e.printStackTrace();
-		 * }
-		 */
+		
 		return evento1;
 	}
 
@@ -101,5 +100,7 @@ public class EventoServiceImpl implements IEventoService{
 		}
 		return false;
 	}
+
+	
 
 }

@@ -16,6 +16,8 @@ public interface IUserService {
 	
 	public UserDto findByDni(Integer dni);
 	
+	public User findById(Long id);
+	
 	
 	//Crud
 	public UserDto save(UserDto userDto);

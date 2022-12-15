@@ -44,6 +44,19 @@ public class User implements Serializable{
 	@ManyToMany(mappedBy = "user")
 	private Set<Turno> turno = new HashSet<>();
 
+	public Set<Turno> getTurno() {
+		return turno;
+	}
+	
+	public void agregarTurno(Turno nuevoTurno) {
+		turno.add(nuevoTurno);
+		
+	}
+
+	public void setTurno(Set<Turno> turno) {
+		this.turno = turno;
+	}
+
 	public Long getId() {
 		return id;
 	}

@@ -21,6 +21,12 @@ public class UserServiceImpl implements IUserService {
 		// TODO Auto-generated method stub
 		return userDao.findAll();
 	}
+	
+	@Override
+	public User findById(Long id) {
+		// TODO Auto-generated method stub
+		return userDao.findById(id).orElse(new User());
+	}
 
 	@Override
 	public List<User> findByLastname(String Lastname) {
@@ -97,4 +103,6 @@ public class UserServiceImpl implements IUserService {
 		}
 		return false;
 	}
+
+	
 }

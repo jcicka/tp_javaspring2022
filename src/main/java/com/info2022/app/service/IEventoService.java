@@ -13,6 +13,8 @@ public interface IEventoService {
 	
 	public List<Evento> findByName(String name );
 	
+	public Evento findById(Long id);
+	
 		
 	//Crud
 	public EventoDto save(Evento evento);

@@ -42,6 +42,23 @@ public class Turno implements Serializable{
 	inverseJoinColumns = @JoinColumn(name="user_id"))
 	private Set<User> user = new HashSet<>();
 
+	
+	public Evento getCod_turno() {
+		return cod_turno;
+	}
+
+	public void setCod_turno(Evento cod_turno) {
+		this.cod_turno = cod_turno;
+	}
+
+	public Set<User> getUser() {
+		return user;
+	}
+
+	public void setUser(Set<User> user) {
+		this.user = user;
+	}
+
 	public Long getId() {
 		return id;
 	}
@@ -72,6 +89,11 @@ public class Turno implements Serializable{
 
 	public void setActivo(Boolean activo) {
 		this.activo = activo;
+	}
+	
+	public void agregarUser(User nuevoUser) {
+		user.add(nuevoUser);
+		nuevoUser.agregarTurno(this);
 	}
 
 	public Turno(Long id, String codigo, Date dateup, Boolean activo) {

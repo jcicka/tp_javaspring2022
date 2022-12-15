@@ -12,7 +12,7 @@ public interface ITurnoService {
 	public List<Turno> getAll();
 	
 	
-	public List<Turno> findByName(String name );
+	public Turno findById(Long id );
 	
 		
 	//Crud
