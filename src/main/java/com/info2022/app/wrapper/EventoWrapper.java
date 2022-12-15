@@ -1,19 +1,14 @@
 package com.info2022.app.wrapper;
 
-import org.springframework.beans.factory.annotation.Autowired;
+
 
 import com.info2022.app.dto.EventoDto;
 import com.info2022.app.entity.Evento;
-import com.info2022.app.entity.Organization;
-import com.info2022.app.repository.IOrganizationDao;
-import com.info2022.app.service.IOrganizationImpl;
+
 
 
 public class EventoWrapper {
 	
-	@Autowired
-	static
-	IOrganizationImpl organizationDao;
 	
 	public static Evento dtoToEntity(EventoDto dto) {		
 		
@@ -42,16 +37,7 @@ public class EventoWrapper {
 		dto.setAddress(entity.getAddress());
 		dto.setDateup(entity.getDateup());
 		dto.setActivo(entity.getActivo());
-		Organization organization = new Organization();
-		try {
-			
-			organization = organizationDao.findById(entity.getCod_org().getId());
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		dto.setCod_org(organization);
+		dto.setCod_org(entity.getCod_org());
 		dto.setDateevento(entity.getDateevento());
 		dto.setOcasional(entity.getOcasional());
 		

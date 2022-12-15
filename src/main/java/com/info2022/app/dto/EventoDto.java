@@ -12,6 +12,12 @@ import com.info2022.app.entity.Organization;
 
 public class EventoDto {
 
+	private Long id;
+	
+	public Long getId() {
+		return id;
+	}
+
 	@NotBlank(message = "El campo nombre no puede estar vacio")
 	@Size(min = 4,  max= 80, message = "El nombre debe ser menor a 4 caracteres y mayor a 80.")
 	private String name;

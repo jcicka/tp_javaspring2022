@@ -19,6 +19,7 @@ import javax.persistence.OneToMany;
 import org.hibernate.annotations.CreationTimestamp;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
 @Entity(name ="eventos")
@@ -114,7 +115,7 @@ public class Evento implements Serializable {
 	public void setOcasional(Boolean ocasional) {
 		this.ocasional = ocasional;
 	}
-
+	@JsonIgnore
 	public Organization getCod_org() {
 		return cod_org;
 	}

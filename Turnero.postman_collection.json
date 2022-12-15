@@ -1,0 +1,298 @@
+{
+	"info": {
+		"_postman_id": "9b69a3c0-4ea3-4c15-8107-967c7cf8982f",
+		"name": "Turnero",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24448408"
+	},
+	"item": [
+		{
+			"name": "Agregar usuario",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"juan\",\r\n    \"lastname\":\"cicka\",\r\n    \"dni\": 12356544,\r\n    \"activo\":true,\r\n    \"email\":\"prueba@gmail.com\",\r\n    \"password\":\"1234abcd\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/v1/user/",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"user",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Agregar evento",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"juan\",\r\n    \"lastname\":\"cicka\",\r\n    \"dni\": 12356544,\r\n    \"activo\":true,\r\n    \"email\":\"prueba@gmail.com\",\r\n    \"password\":\"1234abcd\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/v1/user/",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"user",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Agregar Organizacion",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"Organizacion1\",    \r\n    \"activo\":true,\r\n    \"email\":\"prueba@gmail.com\",\r\n    \"password\":\"XXXXXXXXXX5555555555\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/v1/organization/",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"organization",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Modificar usuario Put",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"juan-\",\r\n    \"lastname\":\"cicka-\",\r\n    \"dni\": 12356544,\r\n    \"activo\":true,\r\n    \"email\":\"prueba--@gmail.com\",\r\n    \"password\":\"1234abcd--\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/v1/user/",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"user",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Modificar evento Put",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 2,\r\n    \"name\":\"evento9\",\r\n    \"address\":\"direccion diferente3\",\r\n    \"dateevento\":\"2020-12-23\",\r\n    \"activo\":true,\r\n    \"cod_org\": {\"id\": 2},\r\n    \"ocasional\":false   \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/v1/evento/",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"evento",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Consulta user x dni",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/v1/user/dni/12525852",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"user",
+						"dni",
+						"12525852"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Consulta user all",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/v1/user/all",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"user",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Consulta organizacion all",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/v1/organization/all",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"organization",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Borrar user x dni",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/v1/user/apellido/cicka-",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"user",
+						"apellido",
+						"cicka-"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Borrar user x dni",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/v1/user/delete/12356544",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"user",
+						"delete",
+						"12356544"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Agregar usuario mal",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"juan\",\r\n    \"lastname\":\"cicka\",\r\n    \"dni\": 12356544,\r\n    \"activo\":true,\r\n    \"email\":\"prueba@gmail.com\",\r\n    \"password\":\"1234abcd\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/v1/user/",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"user",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

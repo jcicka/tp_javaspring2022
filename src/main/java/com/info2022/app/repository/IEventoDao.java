@@ -1,7 +1,7 @@
 package com.info2022.app.repository;
 
 import java.util.List;
-
+import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
@@ -14,5 +14,6 @@ public interface IEventoDao extends JpaRepository<Evento, Long>{
 	
 	public List<Evento> findByNameLike(String name);
 	public Evento findByName(String name);
+	public Optional<Evento> findById(Long id);
 
 }

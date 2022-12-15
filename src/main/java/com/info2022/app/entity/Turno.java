@@ -16,6 +16,8 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 @Entity(name="turnos")
 public class Turno implements Serializable{
@@ -31,6 +33,7 @@ public class Turno implements Serializable{
 	
 	private Boolean activo;
 	
+	@JsonIgnore
 	@ManyToOne(fetch = FetchType.LAZY)
 	private Evento cod_turno;
 	
