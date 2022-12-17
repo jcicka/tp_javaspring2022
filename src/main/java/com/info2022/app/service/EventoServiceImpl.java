@@ -2,7 +2,6 @@ package com.info2022.app.service;
 
 import java.util.List;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.info2022.app.dto.EventoDto;
@@ -21,6 +20,7 @@ public class EventoServiceImpl implements IEventoService{
 	
 	@Autowired
 	private IOrganizationDao organizationDao;
+	
 	
 	@Override
 	public Evento findById(Long id) {
@@ -101,6 +101,7 @@ public class EventoServiceImpl implements IEventoService{
 		return false;
 	}
 
+	
 	
 
 }

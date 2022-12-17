@@ -123,7 +123,8 @@ public class Evento implements Serializable {
 	public void setCod_org(Organization cod_org) {
 		this.cod_org = cod_org;
 	}
-
+	
+	@JsonIgnore
 	public Set<Turno> getTurno() {
 		return turno;
 	}

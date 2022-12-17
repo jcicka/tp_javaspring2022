@@ -18,17 +18,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-
 import com.info2022.app.dto.TurnoDto;
-import com.info2022.app.entity.Evento;
-
 import com.info2022.app.entity.Turno;
-import com.info2022.app.entity.User;
-
-import com.info2022.app.service.IEventoService;
 import com.info2022.app.service.ITurnoService;
-import com.info2022.app.service.IUserService;
+
 
 @RequestMapping("api/v1/turno")
 @RestController
@@ -38,37 +31,40 @@ public class TurnoController {
 	@Autowired
 	private ITurnoService turnoService;
 	
-	@Autowired
-	private IUserService userService;
 	
-	@Autowired
-	private IEventoService eventoService;
 	
 	@GetMapping("/all")
 	public ResponseEntity<HashMap<String, Object>> all(){
 		HashMap<String, Object> response = new HashMap<String, Object>();
 		List<Turno> turnos = turnoService.getAll();
-		response.put("eventos", turnos);		
+		response.put("turnos", turnos);		
 		return new ResponseEntity<HashMap<String, Object>>(response, HttpStatus.OK);
 		
 	}
-	@PostMapping("/user/{id_user}")
-	public ResponseEntity<Map<String, Object>> newEvento(
-			@PathVariable("id_user") Long id_user, @RequestBody @Valid Turno turno) {
+	
+	@GetMapping("/organization/{id}")
+	public ResponseEntity<HashMap<String, Object>> byOrganizatio(@PathVariable("id")Long id){
+		HashMap<String, Object> response = new HashMap<String, Object>();
+		List<Turno> turnos = turnoService.getByOrg(id);
+		response.put("turnos de la Org", turnos);		
+		return new ResponseEntity<HashMap<String, Object>>(response, HttpStatus.OK);
+	}
+	
+	@PostMapping("/")
+	public ResponseEntity<Map<String, Object>> newEvento(@RequestBody @Valid TurnoDto turnoDto) {
 		
-		log.info("turno: "+turno.toString());
-		Evento eventoexist = eventoService.findById(turno.getCod_turno().getId());
-		User userexist = userService.findById(id_user);
+		log.info("turno: "+turnoDto.toString());
 		Map<String, Object> response = new HashMap<>();
-		if (eventoexist== null) {
-			response.put("no existe la organizacion", "");
+		
+		TurnoDto newTurno = turnoService.save(turnoDto);
+	
+		if (newTurno.getCodigo()== ""){
+			response.put("turno","no se pudo agregar el turno");
 		}else {
-			turno.setCod_turno(eventoexist);
-			turno.agregarUser(userexist);
-			TurnoDto newTurno = turnoService.save(turno);
-			
-			response.put("evento", newTurno);
+			response.put("turno", newTurno);
 		}
+		
+		
 			
 		
 		return new ResponseEntity<Map<String,Object>>(response, HttpStatus.OK);

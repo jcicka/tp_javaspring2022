@@ -37,6 +37,7 @@ public class Turno implements Serializable{
 	@ManyToOne(fetch = FetchType.LAZY)
 	private Evento cod_turno;
 	
+	@JsonIgnore
 	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinTable(name="turno_user", joinColumns = @JoinColumn(name="turno_id"), 
 	inverseJoinColumns = @JoinColumn(name="user_id"))

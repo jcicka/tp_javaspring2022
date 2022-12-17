@@ -6,6 +6,7 @@ import com.info2022.app.dto.EventoDto;
 import com.info2022.app.entity.Evento;
 
 
+
 public interface IEventoService {
 	
 	public List<Evento> getAll();

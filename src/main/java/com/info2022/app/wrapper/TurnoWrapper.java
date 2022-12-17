@@ -12,7 +12,8 @@ public class TurnoWrapper {
 		entity.setCodigo(dto.getCodigo());
 		entity.setDateup(dto.getDateup());
 		entity.setActivo(dto.getActivo());
-		
+		entity.setCod_turno(dto.getCod_turno());
+		entity.setUser(dto.getUser());
 		
 		
 		return entity;
@@ -25,6 +26,8 @@ public class TurnoWrapper {
 		dto.setCodigo(entity.getCodigo());
 		dto.setDateup(entity.getDateup());
 		dto.setActivo(entity.getActivo());
+		dto.setCod_turno(entity.getCod_turno());
+		dto.setUser(entity.getUser());
 		
 		return dto;
 	}

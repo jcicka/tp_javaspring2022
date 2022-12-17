@@ -11,12 +11,13 @@ public interface ITurnoService {
 
 	public List<Turno> getAll();
 	
-	
+	List<Turno> getByOrg(Long id);
+		
 	public Turno findById(Long id );
 	
 		
 	//Crud
-	public TurnoDto save(Turno turno);
+	public TurnoDto save(TurnoDto turnoDto);
 		
 	public TurnoDto update(TurnoDto turnoDto);
 	

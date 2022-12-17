@@ -67,6 +67,36 @@
 			"response": []
 		},
 		{
+			"name": "Agregar turno",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"juan\",\r\n    \"lastname\":\"cicka\",\r\n    \"dni\": 12356544,\r\n    \"activo\":true,\r\n    \"email\":\"prueba@gmail.com\",\r\n    \"password\":\"1234abcd\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/v1/user/",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"user",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Agregar Organizacion",
 			"request": {
 				"method": "POST",
@@ -173,6 +203,28 @@
 						"user",
 						"dni",
 						"12525852"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Consulta turno x Org",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/v1/turno/organization/2",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"turno",
+						"organization",
+						"2"
 					]
 				}
 			},
