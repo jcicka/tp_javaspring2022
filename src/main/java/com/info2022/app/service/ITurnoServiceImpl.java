@@ -1,6 +1,7 @@
 package com.info2022.app.service;
 
 
+import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -35,8 +36,16 @@ public class ITurnoServiceImpl implements ITurnoService {
 		// TODO Auto-generated method stub
 		List<Turno> turnos;
 		turnos = turnoDao.findAll();
-		turnos.forEach(e -> e.getCod_turno().getCod_org().getId().equals(id));
-		return turnos;
+		List<Turno> turnos1 = new  ArrayList<>();
+		
+		turnos.forEach((e) -> {
+			if(e.getCod_turno().getCod_org().getId().equals(id)) {
+				turnos1.add(e);
+				}
+			}
+		);
+		
+		return turnos1;
 	}
 
 	@Override

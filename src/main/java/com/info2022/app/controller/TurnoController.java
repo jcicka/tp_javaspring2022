@@ -51,7 +51,7 @@ public class TurnoController {
 	}
 	
 	@PostMapping("/")
-	public ResponseEntity<Map<String, Object>> newEvento(@RequestBody @Valid TurnoDto turnoDto) {
+	public ResponseEntity<Map<String, Object>> newTurno(@RequestBody @Valid TurnoDto turnoDto) {
 		
 		log.info("turno: "+turnoDto.toString());
 		Map<String, Object> response = new HashMap<>();
