@@ -11,6 +11,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -71,5 +72,24 @@ public class OrganizationController {
 		
 		response.put("organizacion", updateOrganization);
 		return new ResponseEntity<Map<String,Object>>(response, HttpStatus.OK);
+	}
+	
+	@DeleteMapping("/delete/{cuit}/{password}")
+	public ResponseEntity<Map<String, Object>> delete(@PathVariable("cuit") Long cuit,@PathVariable("password") String password){
+		OrganizationDto organization = organizationService.findByCuit(cuit);
+		
+		HashMap<String, Object> response = new HashMap<String, Object>();
+		if (organization.getPassword().equals(password) && organization.getActivo()) {
+			boolean updateUser = organizationService.delete(cuit);
+			if(updateUser == false) {
+				response.put("mensaje", "No se pudo borrar la Organización");
+			}
+			response.put("Organización borrada", updateUser);
+			return new ResponseEntity<Map<String,Object>>(response, HttpStatus.OK);
+		}else {
+			response.put("Organización o password incorrecto", "u Organización ya borrado");
+		return new ResponseEntity<Map<String,Object>>(response, HttpStatus.OK);
+		}
+		
 	}
 }

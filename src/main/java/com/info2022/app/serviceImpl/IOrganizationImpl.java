@@ -1,14 +1,13 @@
-package com.info2022.app.service;
+package com.info2022.app.serviceImpl;
 
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.info2022.app.dto.OrganizationDto;
 import com.info2022.app.entity.Organization;
-
 import com.info2022.app.repository.IOrganizationDao;
+import com.info2022.app.service.IOrganizationService;
 import com.info2022.app.wrapper.OrganizationWrapper;
 
 
@@ -38,7 +37,7 @@ public class IOrganizationImpl implements IOrganizationService{
 	}
 
 	@Override
-	public OrganizationDto findByCuit(Integer cuit) {
+	public OrganizationDto findByCuit(Long cuit) {
 		// TODO Auto-generated method stub
 		return OrganizationWrapper.entityToDto(organizationDao.findByCuit(cuit));
 	}
@@ -82,9 +81,33 @@ public class IOrganizationImpl implements IOrganizationService{
 	}
 
 	@Override
-	public OrganizationDto delete(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+	public boolean delete(Long cuit){
+		Organization organizationExist = organizationDao.findByCuit(cuit);
+
+		if(organizationExist != null) {
+
+			Organization entityToPersist = new Organization(); //creamos el objeto a persistir con campos nulos
+
+			// seteamos los valores al objeto a persistir
+			entityToPersist.setId(organizationExist.getId());
+			entityToPersist.setCuit(organizationExist.getCuit());
+			entityToPersist.setDateup(organizationExist.getDateup());
+			entityToPersist.setName(organizationExist.getName());
+			entityToPersist.setAddress(organizationExist.getAddress());
+			entityToPersist.setAddressAltura(organizationExist.getAddressAltura());
+			entityToPersist.setActivo(false);
+			entityToPersist.setEmail(organizationExist.getEmail());
+			entityToPersist.setPassword(organizationExist.getPassword());
+			//
+
+			//persistimos el objeto
+			organizationExist = organizationDao.save(entityToPersist);
+			return true;
+
+		}
+		return false;
 	}
+
+	
 
 }

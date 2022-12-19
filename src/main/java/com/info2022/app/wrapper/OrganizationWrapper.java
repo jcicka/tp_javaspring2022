@@ -16,6 +16,7 @@ public class OrganizationWrapper {
 		entity.setAddressAltura(dto.getAddressAltura());
 		entity.setPhone(dto.getPhone());
 		entity.setEmail(dto.getEmail());
+		entity.setActivo(dto.getActivo());
 		entity.setPassword(dto.getPassword());
 		
 		return entity;
@@ -32,6 +33,7 @@ public class OrganizationWrapper {
 		dto.setAddressAltura(entity.getAddressAltura());
 		dto.setPhone(entity.getPhone());
 		dto.setEmail(entity.getEmail());
+		dto.setActivo(entity.getActivo());
 		dto.setPassword(entity.getPassword());
 		
 		return dto;

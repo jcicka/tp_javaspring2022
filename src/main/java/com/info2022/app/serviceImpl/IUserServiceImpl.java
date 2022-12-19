@@ -1,4 +1,4 @@
-package com.info2022.app.service;
+package com.info2022.app.serviceImpl;
 
 import java.util.List;
 
@@ -8,10 +8,11 @@ import org.springframework.stereotype.Service;
 import com.info2022.app.dto.UserDto;
 import com.info2022.app.entity.User;
 import com.info2022.app.repository.IUserDao;
+import com.info2022.app.service.IUserService;
 import com.info2022.app.wrapper.UserWrapper;
 
 @Service
-public class UserServiceImpl implements IUserService {
+public class IUserServiceImpl implements IUserService {
 	
 	@Autowired
 	private IUserDao userDao;

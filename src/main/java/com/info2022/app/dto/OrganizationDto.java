@@ -4,16 +4,20 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 public class OrganizationDto {
+	
+	private Long id;
 
 	@NotBlank(message = "El campo nombre no puede estar vacio")
 	@Size(min = 4,  max= 80, message = "El nombre debe ser mayor a 4 caracteres y menor a 80.")
 	private String name;
 
+	@NotNull(message="El cuit no puede ser nulo")
 	@Column(unique= true)
-	private Integer cuit;
+	private Long cuit;
 	
 	private Date dateup;
 	
@@ -34,6 +38,11 @@ public class OrganizationDto {
 	@Size(min = 20,  max= 40, message = "El password debe ser mayor a 20 caracteres y menor a 40.")
 	private String password;
 
+	
+	public Long getId() {
+		return id;
+	}
+
 	public String getName() {
 		return name;
 	}
@@ -42,11 +51,11 @@ public class OrganizationDto {
 		this.name = name;
 	}
 
-	public Integer getCuit() {
+	public Long getCuit() {
 		return cuit;
 	}
 
-	public void setCuit(Integer cuit) {
+	public void setCuit(Long cuit) {
 		this.cuit = cuit;
 	}
 
@@ -108,12 +117,14 @@ public class OrganizationDto {
 
 	
 
-	public OrganizationDto(
+
+	public OrganizationDto(Long id,
 			@NotBlank(message = "El campo nombre no puede estar vacio") @Size(min = 4, max = 80, message = "El nombre debe ser mayor a 4 caracteres y menor a 80.") String name,
-			Integer cuit, Date dateup, String email, String address, Integer addressAltura, Integer phone,
-			Boolean activo,
+			@NotNull(message = "El cuit no puede ser nulo") Long cuit, Date dateup, String email, String address,
+			Integer addressAltura, Integer phone, Boolean activo,
 			@NotBlank(message = "El campo Password no puede estar vacio") @Size(min = 20, max = 40, message = "El password debe ser mayor a 20 caracteres y menor a 40.") String password) {
 		super();
+		this.id = id;
 		this.name = name;
 		this.cuit = cuit;
 		this.dateup = dateup;
@@ -132,9 +143,11 @@ public class OrganizationDto {
 
 	@Override
 	public String toString() {
-		return "OrganizationDto [name=" + name + ", cuit=" + cuit + ", dateup=" + dateup + ", email=" + email
-				+ ", address=" + address + ", addressAltura=" + addressAltura + ", phone=" + phone + ", activo="
+		return "OrganizationDto [id=" + id + ", name=" + name + ", cuit=" + cuit + ", dateup=" + dateup + ", email="
+				+ email + ", address=" + address + ", addressAltura=" + addressAltura + ", phone=" + phone + ", activo="
 				+ activo + ", password=" + password + "]";
 	}
+
+	
 	
 }

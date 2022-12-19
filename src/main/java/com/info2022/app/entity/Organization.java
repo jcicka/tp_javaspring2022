@@ -27,7 +27,7 @@ public class Organization implements Serializable {
 	@Column(length = 45)
 	private String name;
 	
-	private Integer cuit;
+	private Long cuit;
 	
 	private Date dateup;
 	
@@ -73,13 +73,13 @@ public class Organization implements Serializable {
 
 
 
-	public Integer getCuit() {
+	public Long getCuit() {
 		return cuit;
 	}
 
 
 
-	public void setCuit(Integer cuit) {
+	public void setCuit(Long cuit) {
 		this.cuit = cuit;
 	}
 
@@ -181,7 +181,7 @@ public class Organization implements Serializable {
 
 
 
-	public Organization(Long id, @NotBlank String name, Integer cuit, Date dateup, String email, String address,
+	public Organization(Long id, @NotBlank String name, Long cuit, Date dateup, String email, String address,
 			Integer addressAltura, Integer phone, Boolean activo, String password, Set<Evento> evento) {
 		super();
 		this.id = id;

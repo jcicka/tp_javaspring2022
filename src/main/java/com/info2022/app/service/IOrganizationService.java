@@ -14,7 +14,7 @@ public interface IOrganizationService {
 	
 	public List<Organization> findByname(String name );
 	
-	public OrganizationDto findByCuit(Integer cuit);
+	public OrganizationDto findByCuit(Long cuit);
 	
 	
 	//Crud
@@ -22,7 +22,7 @@ public interface IOrganizationService {
 		
 	public OrganizationDto update(OrganizationDto organizationDto);
 	
-	public OrganizationDto delete(Long id);
+	public boolean delete(Long cuit);
 	
 
 }

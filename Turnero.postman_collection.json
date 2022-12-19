@@ -157,6 +157,36 @@
 			"response": []
 		},
 		{
+			"name": "Modificar Organizacion Put",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"id\": 1,\r\n        \"name\": \"Organizacion\",\r\n        \"cuit\": 20255283431,\r\n        \"dateup\": null,\r\n        \"email\": \"prueba123@gmail.com\",\r\n        \"address\": \"direccion de prueba\",\r\n        \"addressAltura\": 333,\r\n        \"phone\": null,\r\n        \"activo\": true,\r\n        \"password\": \"zzzzzzzzzz1111111111\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/v1/organization/",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"organization",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Modificar evento Put",
 			"request": {
 				"method": "PUT",
@@ -300,7 +330,7 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/api/v1/user/delete/12356544",
+					"raw": "localhost:8080/api/v1/user/delete/66666666/3210fdsa",
 					"host": [
 						"localhost"
 					],
@@ -310,7 +340,31 @@
 						"v1",
 						"user",
 						"delete",
-						"12356544"
+						"66666666",
+						"3210fdsa"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Borrar Org x cuit y pass",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/v1/organization/delete/20255283431/zzzzzzzzzz1111111111",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"organization",
+						"delete",
+						"20255283431",
+						"zzzzzzzzzz1111111111"
 					]
 				}
 			},

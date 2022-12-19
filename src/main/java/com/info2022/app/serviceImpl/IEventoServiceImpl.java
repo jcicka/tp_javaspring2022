@@ -1,4 +1,4 @@
-package com.info2022.app.service;
+package com.info2022.app.serviceImpl;
 
 import java.util.List;
 
@@ -9,11 +9,12 @@ import com.info2022.app.entity.Evento;
 import com.info2022.app.entity.Organization;
 import com.info2022.app.repository.IEventoDao;
 import com.info2022.app.repository.IOrganizationDao;
+import com.info2022.app.service.IEventoService;
 import com.info2022.app.wrapper.EventoWrapper;
 
 
 @Service
-public class EventoServiceImpl implements IEventoService{
+public class IEventoServiceImpl implements IEventoService{
 	
 	@Autowired
 	private IEventoDao eventoDao;

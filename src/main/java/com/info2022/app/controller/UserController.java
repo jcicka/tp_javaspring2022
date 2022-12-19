@@ -35,6 +35,8 @@ public class UserController {
 	@Autowired
 	private IUserService userService;
 	
+		
+	
 	@GetMapping("/all")
 	public ResponseEntity<HashMap<String, Object>> all(){
 		HashMap<String, Object> response = new HashMap<String, Object>();
@@ -84,17 +86,22 @@ public class UserController {
 		return new ResponseEntity<>(response, HttpStatus.OK);
 	}
 	
-	@DeleteMapping("/delete/{dni}")
-	public ResponseEntity<Map<String, Object>> delete(@PathVariable("dni") Integer dni){
+	@DeleteMapping("/delete/{dni}/{password}")
+	public ResponseEntity<Map<String, Object>> delete(@PathVariable("dni") Integer dni,@PathVariable("password") String password){
+		UserDto usuario = userService.findByDni(dni);
 		
 		HashMap<String, Object> response = new HashMap<String, Object>();
-		boolean updateUser = userService.delete(dni);
-		
-		if(updateUser == false) {
-			response.put("mensaje", "No se pudo borrar la informacion del usuario.");
+		if (usuario.getPassword().equals(password) && usuario.getActivo()) {
+			boolean updateUser = userService.delete(dni);
+			if(updateUser == false) {
+				response.put("mensaje", "No se pudo borrar la informacion del usuario.");
+			}
+			response.put("usuario borrado", updateUser);
+			return new ResponseEntity<Map<String,Object>>(response, HttpStatus.OK);
+		}else {
+			response.put("usuario o password incorrecto", "o usuario ya borrado");
+		return new ResponseEntity<Map<String,Object>>(response, HttpStatus.OK);
 		}
 		
-		response.put("usuario borrado", updateUser);
-		return new ResponseEntity<Map<String,Object>>(response, HttpStatus.OK);
 	}
 }

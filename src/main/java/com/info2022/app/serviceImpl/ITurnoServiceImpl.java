@@ -1,4 +1,4 @@
-package com.info2022.app.service;
+package com.info2022.app.serviceImpl;
 
 
 import java.util.ArrayList;
@@ -10,6 +10,9 @@ import com.info2022.app.entity.Evento;
 import com.info2022.app.entity.Turno;
 import com.info2022.app.entity.User;
 import com.info2022.app.repository.ITurnoDao;
+import com.info2022.app.service.IEventoService;
+import com.info2022.app.service.ITurnoService;
+import com.info2022.app.service.IUserService;
 import com.info2022.app.wrapper.TurnoWrapper;
 
 
