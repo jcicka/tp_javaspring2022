@@ -97,11 +97,11 @@ public class UserController {
 				response.put("mensaje", "No se pudo borrar la informacion del usuario.");
 			}
 			response.put("usuario borrado", updateUser);
-			return new ResponseEntity<Map<String,Object>>(response, HttpStatus.OK);
+			//return new ResponseEntity<Map<String,Object>>(response, HttpStatus.OK);
 		}else {
 			response.put("usuario o password incorrecto", "o usuario ya borrado");
-		return new ResponseEntity<Map<String,Object>>(response, HttpStatus.OK);
-		}
 		
+		}
+		return new ResponseEntity<Map<String,Object>>(response, HttpStatus.OK);
 	}
 }

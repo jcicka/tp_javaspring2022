@@ -43,7 +43,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"name\":\"juan\",\r\n    \"lastname\":\"cicka\",\r\n    \"dni\": 12356544,\r\n    \"activo\":true,\r\n    \"email\":\"prueba@gmail.com\",\r\n    \"password\":\"1234abcd\"\r\n}",
+					"raw": "{\r\n    \"name\":\"evento5\",\r\n    \"address\":\"direccion diferente3\",\r\n    \"dateevento\":\"2020-12-23\",\r\n    \"activo\":true,\r\n    \"ocasional\":true,\r\n    \"idorg\":2\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -51,7 +51,7 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:8080/api/v1/user/",
+					"raw": "localhost:8080/api/v1/evento/",
 					"host": [
 						"localhost"
 					],
@@ -59,7 +59,7 @@
 					"path": [
 						"api",
 						"v1",
-						"user",
+						"evento",
 						""
 					]
 				}
@@ -73,7 +73,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"name\":\"juan\",\r\n    \"lastname\":\"cicka\",\r\n    \"dni\": 12356544,\r\n    \"activo\":true,\r\n    \"email\":\"prueba@gmail.com\",\r\n    \"password\":\"1234abcd\"\r\n}",
+					"raw": "{\r\n    \"codigo\":\"turno20\",\r\n    \"activo\":true,\r\n    \"dateevento\":\"2022-12-30\",\r\n    \"idevento\":5,\r\n    \"iduser\":3\r\n}\r\n\t\r\n\r\n\t",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -81,7 +81,7 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:8080/api/v1/user/",
+					"raw": "localhost:8080/api/v1/turno/",
 					"host": [
 						"localhost"
 					],
@@ -89,7 +89,7 @@
 					"path": [
 						"api",
 						"v1",
-						"user",
+						"turno",
 						""
 					]
 				}
@@ -275,6 +275,27 @@
 						"api",
 						"v1",
 						"user",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Consulta evento all",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/v1/evento/all",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"evento",
 						"all"
 					]
 				}

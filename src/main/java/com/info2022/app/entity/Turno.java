@@ -16,6 +16,9 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
+import org.hibernate.annotations.CreationTimestamp;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
@@ -29,9 +32,13 @@ public class Turno implements Serializable{
 	
 	private String codigo;
 	
+	@CreationTimestamp
 	private Date dateup;
 	
 	private Boolean activo;
+	
+	@JsonFormat(pattern="yyyy-MM-dd")
+	private Date dateevento;
 	
 	@JsonIgnore
 	@ManyToOne(fetch = FetchType.LAZY)
@@ -44,6 +51,14 @@ public class Turno implements Serializable{
 	private Set<User> user = new HashSet<>();
 
 	
+	public Date getDateevento() {
+		return dateevento;
+	}
+
+	public void setDateevento(Date dateevento) {
+		this.dateevento = dateevento;
+	}
+
 	public Evento getCod_turno() {
 		return cod_turno;
 	}

@@ -63,10 +63,7 @@ public class TurnoController {
 		}else {
 			response.put("turno", newTurno);
 		}
-		
-		
-			
-		
+				
 		return new ResponseEntity<Map<String,Object>>(response, HttpStatus.OK);
 	}
 	

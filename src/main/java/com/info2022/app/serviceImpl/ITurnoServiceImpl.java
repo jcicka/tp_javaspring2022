@@ -67,9 +67,15 @@ public class ITurnoServiceImpl implements ITurnoService {
 		if (eventoexist== null || userexist== null)  {
 			//response.put("no existe el evento o el usuario", "");
 		}else {
+			
 			turno = TurnoWrapper.dtoToEntity(turnoDto);
 			turno.setCod_turno(eventoexist);
 			turno.agregarUser(userexist);
+			if (eventoexist.getOcasional()) {
+				turno.setDateevento(eventoexist.getDateevento());
+			}else {
+				turno.setDateevento(turnoDto.getDateevento());
+			}
 		}
 		turno = turnoDao.save(turno);
 		TurnoDto turno1 = TurnoWrapper.entityToDto(turno);

@@ -15,7 +15,7 @@ public class TurnoDto {
 	@Column(nullable = false)
 	private String codigo;
 	
-	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+	@JsonFormat(pattern="yyyy-MM-dd")
 	private Date dateup;
 	
 	private Boolean activo;
@@ -26,9 +26,20 @@ public class TurnoDto {
 	
 	private Evento cod_turno;
 	
+	@JsonFormat(pattern="yyyy-MM-dd")
+	private Date dateevento;
+	
 	private Set<User> user = new HashSet<>();
 	
 	
+	public Date getDateevento() {
+		return dateevento;
+	}
+
+	public void setDateevento(Date dateevento) {
+		this.dateevento = dateevento;
+	}
+
 	public Evento getCod_turno() {
 		return cod_turno;
 	}

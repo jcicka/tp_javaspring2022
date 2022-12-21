@@ -8,6 +8,7 @@ import javax.persistence.Column;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.info2022.app.entity.Organization;
 
 public class EventoDto {
@@ -32,6 +33,7 @@ public class EventoDto {
 	@Column(nullable = false)
 	private LocalDate dateup;
 	
+	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
 	private Date dateevento;
 	
 	private Organization cod_org;
